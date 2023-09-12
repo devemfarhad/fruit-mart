@@ -3,9 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fruit Mart</title>
+    <link rel="shortcut icon" href="./icons/logo.png" type="image/x-icon">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- font-awesome CDN -->
+    <script src="https://kit.fontawesome.com/7aba5113e1.js" crossorigin="anonymous"></script>
+    <!-- Google Font: Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- DaisyUI and Tailwind CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind custom config -->
+    <script>
+        tailwind.config = {
+           theme: {
+              extend: {
+                 colors: {
+                    clifford: '#da373d',
+                    'color-primary': '#F85559',
+                    'color-custom-black': '#121212CD',
+                 },
+                 backgroundImage: {
+                    'banner-img-1': "url('./images/banner1.png')",
+                    'banner-img-2': "url('./images/banner2.png')",
+                    'banner-img-3': "url('./images/banner3.png')",
+                    'banner-img-4': "url('./images/banner4.png')",
+                    'team-img': "url('./images/team.png')",
+                 }
+              }
+           }
+        }
+     </script>
+
 </head>
-<body>
+<body class="font-lato">
+    <!-- Header build starts -->
+    <header class="container mx-auto md:px-2 lg:px-10">
+        <nav class="my-3 lg:my-8">
+           <div class="xl:bg-color-primary justify-between rounded-full w-full px-5 py-3">
+              <div class="flex justify-between items-center">
+                 <!-- For Large device (lg:nav-menu) -->
+                 <div class="hidden xl:flex">
+                    <ul class="menu menu-horizontal px-1 text-white text-lg font-medium">
+                       <li><a>Home</a></li>
+                       <li><a>Shop</a></li>
+                       <li><a>All Fruits</a></li>
+                       <li><a>About Us</a></li>
+                    </ul>
+                 </div>
+                 <!-- For logo -->
+                 <div>
+                    <a class="flex items-center normal-case text-xl gap-2">
+                       <div>
+                          <img class="w-full" src="./icons/logo.png" alt="">
+                       </div>
+                       <span class="text-[#121212] xl:text-white text-2xl lg:text-4xl font-bold">Fruit Mart</span>
+                    </a>
+                 </div>
+                 <!-- For Small device (sm:nav-menu) -->
+                 <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost xl:hidden scale-150">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M3.75 6.75H20.25M3.75 12H20.25M3.75 17.25H20.25" stroke="#121212" stroke-width="1.5"
+                             stroke-linecap="round" stroke-linejoin="round" />
+                       </svg>
+                    </label>
+                    <div class="relative">
+                       <ul tabindex="0"
+                          class="absolute right-1 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64">
+                          <li><a>Home</a></li>
+                          <li><a>Shop</a></li>
+                          <li><a>All Fruits</a></li>
+                          <li><a>About Us</a></li>
+                          <li>
+                             <!-- For Small device (sm:search) -->
+                             <div class="xl:hidden">
+                                <div class="relative flex justify-end">
+                                   <input type="text" placeholder="Search Here"
+                                      class="input rounded-full w-full pr-16 border-2 border-color-primary" />
+                                   <button class="btn bg-transparent absolute top-0 right-0 border-0 rounded-full">
+                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                         <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                      </svg>
+                                   </button>
+                                </div>
+                             </div>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+                 <!-- For Large device (lg:search) -->
+                 <div class="hidden xl:block">
+                    <div class="relative flex justify-end">
+                       <input type="text" placeholder="Search Here" class="input rounded-full w-80 pr-16" />
+                       <button class="btn bg-transparent absolute top-0 right-0 border-0 rounded-full">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="w-6 h-6">
+                             <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                          </svg>
+                       </button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </nav>
+        <!-- Banner section Starts -->
+        <section class="relative mb-16 lg:mb-44 px-4">
+           <!-- Main banner sliders Starts -->
+           <div class="carousel w-full">
+              <!-- Slider No.1 -->
+              <div id="slide1" class="carousel-item relative w-full">
+                 <!-- Banner content -->
+                 <div class="hero min-h-fit bg-banner-img-1 rounded-lg">
+                    <div class="hero-overlay bg-gradient-to-b from-[#121212FF] to-[#12121200] rounded-lg"></div>
+                    <div class="hero-content text-center text-neutral-content py-20 xl:pb-[205px]">
+                       <div class="w-fit">
+                          <h1 class="mb-6 text-2xl lg:text-7xl font-bold">
+                             Exotic tastes at your
+                             <br>
+                             doorstep
+                          </h1>
+                          <p class="mb-8 text-sm lg:text-xl">We supply highly quality organic products</p>
+                          <button
+                             class="btn bg-color-primary border-0 text-white hover:text-color-primary font-bold normal-case text-xl">Shop
+                             Now</button>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide4" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❮</a>
+                    <a href="#slide2" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❯</a>
+                 </div>
+              </div>
+              <!-- Slider No.2 -->
+              <div id="slide2" class="carousel-item relative w-full">
+                 <!-- Banner content -->
+                 <div class="hero min-h-fit bg-banner-img-2 rounded-lg">
+                    <div class="hero-overlay bg-gradient-to-b from-[#121212FF] to-[#12121200] rounded-lg"></div>
+                    <div class="hero-content text-center text-neutral-content py-20 xl:pb-[205px]">
+                       <div class="w-fit">
+                          <h1 class="mb-6 text-2xl lg:text-7xl font-bold">
+                             Exotic tastes at your
+                             <br>
+                             doorstep
+                          </h1>
+                          <p class="mb-8 text-sm lg:text-xl">We supply highly quality organic products</p>
+                          <button
+                             class="btn bg-color-primary border-0 text-white hover:text-color-primary font-bold normal-case text-xl">Shop
+                             Now</button>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide1" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❮</a>
+                    <a href="#slide3" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❯</a>
+                 </div>
+              </div>
+              <!-- Slider No.3 -->
+              <div id="slide3" class="carousel-item relative w-full">
+                 <!-- Banner content -->
+                 <div class="hero min-h-fit bg-banner-img-3 rounded-lg">
+                    <div class="hero-overlay bg-gradient-to-b from-[#121212FF] to-[#12121200] rounded-lg"></div>
+                    <div class="hero-content text-center text-neutral-content py-20 xl:pb-[205px]">
+                       <div class="w-fit">
+                          <h1 class="mb-6 text-4xl lg:text-7xl font-bold">
+                             Exotic tastes at your
+                             <br>
+                             doorstep
+                          </h1>
+                          <p class="mb-8 text-sm lg:text-xl">We supply highly quality organic products</p>
+                          <button
+                             class="btn bg-color-primary border-0 text-white hover:text-color-primary font-bold normal-case text-lg">Shop
+                             Now</button>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide2" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❮</a>
+                    <a href="#slide4" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❯</a>
+                 </div>
+              </div>
+              <!-- Slider No.4 -->
+              <div id="slide4" class="carousel-item relative w-full">
+                 <!-- Banner content -->
+                 <div class="hero min-h-fit bg-banner-img-4 rounded-lg">
+                    <div class="hero-overlay bg-gradient-to-b from-[#121212FF] to-[#12121200] rounded-lg"></div>
+                    <div class="hero-content text-center text-neutral-content py-20 xl:pb-[205px]">
+                       <div class="w-fit">
+                          <h1 class="mb-6 text-2xl lg:text-7xl font-bold">
+                             Exotic tastes at your
+                             <br>
+                             doorstep
+                          </h1>
+                          <p class="mb-8 text-sm lg:text-xl">We supply highly quality organic products</p>
+                          <button
+                             class="btn bg-color-primary border-0 text-white hover:text-color-primary font-bold normal-case text-xl">Shop
+                             Now</button>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide3" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❮</a>
+                    <a href="#slide1" class="btn bg-transparent hover:bg-transparent text-white scale-150 border-0">❯</a>
+                 </div>
+              </div>
+           </div>
+           <!-- Main banner sliders Ends -->
+           <!-- Overlay Fruit Section Starts -->
+           <div class="relative xl:absolute xl:-bottom-32 mt-4 mx-auto xl:ml-40 2xl:ml-44 w-9/12 hidden lg:block">
+              <div class="flex justify-between px-16 py-12 bg-white shadow-lg rounded-lg">
+                 <div>
+                    <img src="./images/fruit1.png" alt=""><br>
+                    <h4 class="text-lg text-color-custom-black text-center">Grape</h4>
+                 </div>
+                 <div>
+                    <img src="./images/fruit2.png" alt=""><br>
+                    <h4 class="text-lg text-color-custom-black text-center">Orange</h4>
+                 </div>
+                 <div>
+                    <img src="./images/fruit3.png" alt=""><br>
+                    <h4 class="text-lg text-color-custom-black text-center">Mango</h4>
+                 </div>
+                 <div>
+                    <img src="./images/fruit4.png" alt=""><br>
+                    <h4 class="text-lg text-color-custom-black text-center">Strawberry</h4>
+                 </div>
+                 <div>
+                    <img src="./images/fruit5.png" alt=""><br>
+                    <h4 class="text-lg text-color-custom-black text-center">Pomegranate</h4>
+                 </div>
+              </div>
+           </div>
+           <!-- Overlay Fruit Section Ends -->
+        </section>
+        <!-- Banner section Ends -->
+     </header>
+     <!-- Header build ends -->
     
 </body>
 </html>
